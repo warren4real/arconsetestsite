@@ -27,14 +27,32 @@ if (quoteForm) {
         e.preventDefault();
         
         // Get form values
+        const inquiryType = document.getElementById('inquiry-type').value;
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const phone = document.getElementById('phone').value;
         const message = document.getElementById('message').value;
         
-        // Here you would typically send this data to a server
-        // For now, we'll just show an alert
-        alert(`Thank you ${name}! Your quote request has been submitted. We'll contact you at ${email} within 24 hours.`);
+        // Determine which phone number to show based on inquiry type
+        let contactNumber = '';
+        if (inquiryType === 'service' || inquiryType === 'project') {
+            contactNumber = '0916-693-8001 (Norman Tan)';
+        } else if (inquiryType === 'product') {
+            contactNumber = '0917-204-3104 (Joash Gaerlan)';
+        } else {
+            contactNumber = '0916-693-8001 or 0917-204-3104';
+        }
+        
+        // Create inquiry type text
+        const inquiryText = {
+            'service': 'Service Quotation',
+            'product': 'Product Inquiry',
+            'project': 'Project Consultation',
+            'general': 'General Inquiry'
+        }[inquiryType] || 'Inquiry';
+        
+        // Show confirmation message
+        alert(`Thank you ${name}! Your ${inquiryText} has been submitted.\n\nWe'll contact you at ${phone} or ${email} within 24 hours.\n\nFor immediate assistance, you can call:\n${contactNumber}`);
         
         // Reset form
         quoteForm.reset();
@@ -62,44 +80,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Add active class to nav links based on scroll position
-window.addEventListener('scroll', () => {
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-menu a');
-    
-    let current = '';
-    
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        
-        if (scrollY >= (sectionTop - 100)) {
-            current = section.getAttribute('id');
-        }
-    });
-    
-    navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-            link.classList.add('active');
-        }
+// Make product cards clickable (already handled by onclick in HTML)
+// This is just for visual feedback
+document.querySelectorAll('.product-card').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+        this.style.cursor = 'pointer';
     });
 });
-
-// Lazy loading for images
-if ('IntersectionObserver' in window) {
-    const imageObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.add('loaded');
-                observer.unobserve(img);
-            }
-        });
-    });
-    
-    document.querySelectorAll('img[data-src]').forEach(img => {
-        imageObserver.observe(img);
-    });
-}
