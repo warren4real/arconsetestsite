@@ -1,9 +1,3 @@
-/* TEST RULE - If page turns red, CSS is working! */
-/* Remove this after verification */
-body {
-    background-color: red !important;
-}
-
 /* Reset & Base Styles */
 * {
     margin: 0;
