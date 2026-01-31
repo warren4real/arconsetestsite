@@ -31,7 +31,6 @@
     <!-- Hero Section -->
     <section class="hero" role="img" aria-label="ArConSe hero image"></section>
 
-
     <!-- Services Section - STATIC (non-clickable) -->
     <section id="services" class="section services">
         <div class="container">
@@ -110,15 +109,22 @@
                     </div>
                 </div>
             </div>
-            <div class="project-highlights">
-                <h4>Other Notable Projects:</h4>
-                <ul>
-                    <li>Potable Water Systems at Belmont Newport Luxury Hotels</li>
-                    <li>21 Stages Fully Executive Purified Water Refilling System (3000 GPD)</li>
-                    <li>NOVADECI - 160 CMD Sewage Treatment Plant</li>
-                    <li>St. Mazenod Hospital - 20 CMD Sewage Treatment Plant</li>
-                    <li>Gourmet Solutions - 25 CMD Sewage Treatment Plant</li>
-                </ul>
+            
+            <!-- Other Notable Projects - DROPDOWN VERSION -->
+            <div class="project-highlights-dropdown">
+                <button class="dropdown-toggle" id="projectsDropdownToggle">
+                    <h4>Other Notable Projects:</h4>
+                    <i class="fas fa-chevron-down dropdown-icon"></i>
+                </button>
+                <div class="dropdown-content" id="projectsDropdown">
+                    <ul>
+                        <li>Potable Water Systems at Belmont Newport Luxury Hotels</li>
+                        <li>21 Stages Fully Executive Purified Water Refilling System (3000 GPD)</li>
+                        <li>NOVADECI - 160 CMD Sewage Treatment Plant</li>
+                        <li>St. Mazenod Hospital - 20 CMD Sewage Treatment Plant</li>
+                        <li>Gourmet Solutions - 25 CMD Sewage Treatment Plant</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -304,7 +310,6 @@
                 <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#about">About Us</a></li>
                         <li><a href="#services">Our Services</a></li>
                         <li><a href="#projects">Projects</a></li>
                         <li><a href="#products">Products</a></li>
