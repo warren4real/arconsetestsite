@@ -136,76 +136,6 @@ body {
     position: relative;
 }
 
-/* About Section */
-.about-content {
-    background: #FFF;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-}
-
-.about-text h3 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 2rem;
-    color: #d86c10;
-    margin-bottom: 20px;
-    text-align: center;
-}
-
-.about-text p {
-    color: #666;
-    line-height: 1.8;
-    margin-bottom: 30px;
-    text-align: center;
-}
-
-.mission-vision {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin: 40px 0;
-}
-
-.mv-card {
-    background: #f9f9f9;
-    padding: 25px;
-    border-radius: 8px;
-    border-left: 4px solid #d86c10;
-}
-
-.mv-card h4 {
-    font-family: 'Poppins', sans-serif;
-    color: #d86c10;
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.mv-card h4 i {
-    font-size: 1.2rem;
-}
-
-.values {
-    background: #f9f9f9;
-    padding: 25px;
-    border-radius: 8px;
-    margin-top: 20px;
-    text-align: center;
-}
-
-.values h4 {
-    font-family: 'Poppins', sans-serif;
-    color: #d86c10;
-    margin-bottom: 15px;
-}
-
-.values p {
-    color: #333;
-    font-weight: 500;
-    font-size: 1.1rem;
-}
-
 /* Services Section - Clean Layout */
 .services-grid {
     display: grid;
@@ -219,14 +149,14 @@ body {
     border-radius: 10px;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
     border-left: 5px solid #d86c10; /* Darker shade of #f48020 */
-    transition: transform 0.3s, box-shadow 0.3s;
-    text-align: left;
+    text-align: left; /* REMOVED transition property */
 }
 
-.service-card:hover {
+/* REMOVED hover effect for service cards */
+/* .service-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-}
+} */
 
 .service-card h3 {
     font-family: 'Poppins', sans-serif;
