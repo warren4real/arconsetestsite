@@ -136,42 +136,64 @@ body {
     position: relative;
 }
 
-/* Services Section - Clean Layout */
-.services-grid {
+/* Services Section - T-Format Layout */
+.services-t-format {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 40px;
 }
 
-.service-card {
-    background: #FFF; /* White cards */
-    padding: 40px 30px;
+.services-column {
+    background: #FFF;
     border-radius: 10px;
+    overflow: hidden;
     box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    border-left: 5px solid #d86c10; /* Darker shade of #f48020 */
-    text-align: left; /* REMOVED transition property */
 }
 
-/* REMOVED hover effect for service cards */
-/* .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-} */
+.services-column-header {
+    background: #d86c10;
+    padding: 25px 30px;
+    text-align: center;
+}
 
-.service-card h3 {
+.services-column-header h3 {
     font-family: 'Poppins', sans-serif;
     font-size: 1.8rem;
     font-weight: 600;
-    margin-bottom: 15px;
-    color: #d86c10; /* Darker orange headings */
-    text-align: center;
+    color: #FFF;
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
-.service-card p {
+.service-item {
+    padding: 25px 30px;
+    border-bottom: 1px solid #f0f0f0;
+    transition: background-color 0.3s;
+}
+
+.service-item:last-child {
+    border-bottom: none;
+}
+
+.service-item:hover {
+    background-color: #f9f9f9;
+}
+
+.service-item h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #d86c10;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.service-item p {
     color: #666;
-    line-height: 1.8;
-    text-align: center;
-    font-size: 1.05rem;
+    line-height: 1.6;
+    font-size: 1rem;
+    margin: 0;
 }
 
 /* Services Section - Static */
@@ -638,7 +660,7 @@ textarea {
         font-size: 2rem;
     }
     
-    .service-card h3,
+    .services-column-header h3,
     .product-card h3 {
         font-size: 1.6rem;
     }
@@ -675,7 +697,15 @@ textarea {
         display: block;
     }
     
-    .service-card,
+    .services-t-format {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .services-column {
+        margin-bottom: 0;
+    }
+    
     .product-card {
         padding: 30px 20px;
     }
@@ -707,6 +737,14 @@ textarea {
     .dropdown-content.show {
         padding: 0 20px 20px 20px;
     }
+    
+    .service-item {
+        padding: 20px;
+    }
+    
+    .service-item h4 {
+        font-size: 1.2rem;
+    }
 }
 
 @media (max-width: 576px) {
@@ -718,14 +756,18 @@ textarea {
         padding: 20px;
     }
     
-    .service-card h3,
+    .services-column-header h3,
     .product-card h3 {
         font-size: 1.4rem;
     }
     
-    .service-card p,
+    .service-item h4 {
+        font-size: 1.1rem;
+    }
+    
+    .service-item p,
     .product-card p {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
     
     .product-price {
