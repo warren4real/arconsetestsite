@@ -1,4 +1,4 @@
-// Mobile Menu Toggle
+// Mobile menu toggle
 const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
 
@@ -11,19 +11,33 @@ if (menuToggle) {
     });
 }
 
-// Close menu when clicking on a link
-document.querySelectorAll('.nav-menu a').forEach(link => {
+// Projects dropdown functionality
+const dropdownToggle = document.getElementById('projectsDropdownToggle');
+const dropdownContent = document.getElementById('projectsDropdown');
+const dropdownIcon = dropdownToggle?.querySelector('.dropdown-icon');
+
+if (dropdownToggle) {
+    dropdownToggle.addEventListener('click', () => {
+        dropdownContent.classList.toggle('show');
+        dropdownIcon.classList.toggle('open');
+    });
+}
+
+// Close mobile menu when clicking on a link
+const navLinks = document.querySelectorAll('.nav-menu a');
+navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('active');
-        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        if (navMenu.classList.contains('active')) {
+            navMenu.classList.remove('active');
+            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        }
     });
 });
 
-// Form Submission
+// Contact form submission
 const quoteForm = document.getElementById('quoteForm');
-
 if (quoteForm) {
-    quoteForm.addEventListener('submit', function(e) {
+    quoteForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
         // Get form values
@@ -33,38 +47,18 @@ if (quoteForm) {
         const phone = document.getElementById('phone').value;
         const message = document.getElementById('message').value;
         
-        // Determine which phone number to show based on inquiry type
-        let contactNumber = '';
-        if (inquiryType === 'service' || inquiryType === 'project') {
-            contactNumber = '0916-693-8001';
-        } else if (inquiryType === 'product') {
-            contactNumber = '0917-204-3104';
-        } else {
-            contactNumber = '0916-693-8001 or 0917-204-3104';
-        }
-        
-        // Create inquiry type text
-        const inquiryText = {
-            'service': 'Service Quotation',
-            'product': 'Product Inquiry',
-            'project': 'Project Consultation',
-            'general': 'General Inquiry'
-        }[inquiryType] || 'Inquiry';
-        
-        // Show confirmation message
-        alert(`Thank you ${name}! Your ${inquiryText} has been submitted.\n\nWe'll contact you at ${phone} or ${email} within 24 hours.\n\nFor immediate assistance, you can call:\n${contactNumber}`);
+        // In a real application, you would send this data to a server
+        // For now, we'll just show an alert
+        alert(`Thank you for your inquiry, ${name}! We will contact you at ${email} or ${phone} regarding your ${inquiryType} request.`);
         
         // Reset form
         quoteForm.reset();
-        
-        // Scroll to top
-        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }
 
 // Smooth scrolling for anchor links
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
+    anchor.addEventListener('click', function (e) {
         e.preventDefault();
         
         const targetId = this.getAttribute('href');
@@ -80,32 +74,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Make product cards clickable (already handled by onclick in HTML)
-// This is just for visual feedback
-document.querySelectorAll('.product-card').forEach(card => {
-    card.addEventListener('mouseenter', function() {
-        this.style.cursor = 'pointer';
-    });
-});
-
-// Projects Dropdown Toggle
-const projectsDropdownToggle = document.getElementById('projectsDropdownToggle');
-const projectsDropdown = document.getElementById('projectsDropdown');
-const dropdownIcon = document.querySelector('.dropdown-icon');
-
-if (projectsDropdownToggle) {
-    projectsDropdownToggle.addEventListener('click', () => {
-        projectsDropdown.classList.toggle('show');
-        dropdownIcon.classList.toggle('open');
-        
-        // Update ARIA attributes for accessibility
-        const isExpanded = projectsDropdown.classList.contains('show');
-        projectsDropdownToggle.setAttribute('aria-expanded', isExpanded);
-        projectsDropdown.setAttribute('aria-hidden', !isExpanded);
+// Add hover effect to product cards
+const productCards = document.querySelectorAll('.product-card');
+productCards.forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-10px)';
     });
     
-    // Set initial ARIA attributes
-    projectsDropdownToggle.setAttribute('aria-expanded', 'false');
-    projectsDropdown.setAttribute('aria-hidden', 'true');
-    projectsDropdownToggle.setAttribute('aria-controls', 'projectsDropdown');
-}
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+    });
+});
