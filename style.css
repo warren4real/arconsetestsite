@@ -13,7 +13,7 @@ body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;
     color: #333;
-    background-color: #fff;
+    background-color: #f48020; /* Orange background for entire page */
 }
 
 .container {
@@ -55,6 +55,32 @@ body {
     margin: 0 auto;
 }
 
+/* Background Wrappers */
+.orange-background {
+    background-color: #f48020;
+}
+
+.orange-background .section-header h2,
+.orange-background .section-subtitle {
+    color: white;
+}
+
+.orange-background .underline {
+    background: white;
+}
+
+.white-background {
+    background-color: white;
+}
+
+.white-background .section-header h2 {
+    color: #333;
+}
+
+.white-background .underline {
+    background: #f48020;
+}
+
 /* Navigation */
 .navbar {
     background: #fff;
@@ -86,7 +112,7 @@ body {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    margin-left: 40px; /* Space after logo */
+    margin-left: 40px;
 }
 
 /* Centered Links Container */
@@ -131,12 +157,12 @@ body {
     background: #f48020;
     color: white !important;
     padding: 10px 35px;
-    border-radius: 50px; /* Creates oval shape */
+    border-radius: 50px;
     font-weight: 600;
     text-decoration: none;
     transition: all 0.3s;
     border: 2px solid #f48020;
-    margin-left: auto; /* Pushes to right edge */
+    margin-left: auto;
 }
 
 .btn-contact-oval:hover {
@@ -156,96 +182,11 @@ body {
     cursor: pointer;
 }
 
-/* Responsive Design */
-@media (max-width: 992px) {
-    .nav-links-centered {
-        gap: 25px;
-    }
-}
-
-@media (max-width: 768px) {
-    .nav-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        flex-direction: column;
-        padding: 25px;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-        border-top: 2px solid #f48020;
-        gap: 15px;
-        margin-left: 0;
-    }
-    
-    .nav-menu.active {
-        display: flex;
-    }
-    
-    .nav-links-centered {
-        position: static;
-        transform: none;
-        flex-direction: column;
-        gap: 15px;
-        width: 100%;
-        margin-bottom: 15px;
-    }
-    
-    .nav-links-centered a {
-        width: 100%;
-        text-align: center;
-        padding: 12px 0;
-    }
-    
-    .btn-contact-oval {
-        margin-left: 0;
-        width: 100%;
-        text-align: center;
-        border-radius: 50px;
-    }
-    
-    .menu-toggle {
-        display: block;
-    }
-}
-
+/* Hero Section */
 .hero {
     background: url('assets/hero-construction.jpg') center/cover no-repeat;
     height: 100vh;
     margin-top: 80px;
-}
-
-.hero-content h1 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 3.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-}
-
-.hero-content p {
-    font-size: 1.3rem;
-    margin-bottom: 30px;
-    opacity: 0.9;
-}
-
-.btn-hero {
-    display: inline-block;
-    background: #f48020;
-    color: white;
-    padding: 15px 40px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s;
-}
-
-.btn-hero:hover {
-    background: #d86c10;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 /* Services Section */
@@ -257,14 +198,14 @@ body {
 }
 
 .services-column {
-    background: #f9f9f9;
+    background: white;
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
 .services-column-header {
-    background: #f48020;
+    background: #d86c10;
     padding: 25px 30px;
 }
 
@@ -289,7 +230,7 @@ body {
     font-family: 'Poppins', sans-serif;
     font-size: 1.2rem;
     font-weight: 600;
-    color: #333;
+    color: #d86c10;
     margin-bottom: 10px;
 }
 
@@ -306,23 +247,23 @@ body {
 }
 
 .product-card {
-    background: #fff;
+    background: white;
     padding: 30px;
     border-radius: 10px;
     text-align: center;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     transition: transform 0.3s, box-shadow 0.3s;
-    border-top: 4px solid #f48020;
+    border-left: 5px solid #d86c10;
 }
 
 .product-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
 }
 
 .product-icon {
     font-size: 2.5rem;
-    color: #f48020;
+    color: #d86c10;
     margin-bottom: 20px;
 }
 
@@ -342,7 +283,7 @@ body {
 
 .btn-product {
     display: inline-block;
-    background: #f48020;
+    background: #d86c10;
     color: white;
     padding: 12px 25px;
     border-radius: 5px;
@@ -354,7 +295,7 @@ body {
 }
 
 .btn-product:hover {
-    background: #d86c10;
+    background: #f48020;
 }
 
 /* Projects Section */
@@ -365,16 +306,17 @@ body {
 }
 
 .project-card {
-    background: #f9f9f9;
+    background: white;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     transition: transform 0.3s;
-    border-left: 4px solid #f48020;
+    border-left: 4px solid #d86c10;
 }
 
 .project-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.2);
 }
 
 .project-content h3 {
@@ -395,6 +337,10 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .contact-info h3, .contact-form h3 {
@@ -462,10 +408,11 @@ input, textarea, select {
 input:focus, textarea:focus, select:focus {
     outline: none;
     border-color: #f48020;
+    box-shadow: 0 0 0 2px rgba(244, 128, 32, 0.2);
 }
 
 .btn-submit {
-    background: #f48020;
+    background: #d86c10;
     color: white;
     border: none;
     padding: 15px 40px;
@@ -478,14 +425,15 @@ input:focus, textarea:focus, select:focus {
 }
 
 .btn-submit:hover {
-    background: #d86c10;
+    background: #f48020;
 }
 
 /* Footer */
 .footer {
-    background: #333;
-    color: white;
+    background: white;
+    color: #333;
     padding: 60px 0 20px;
+    border-top: 1px solid #eee;
 }
 
 .footer-grid {
@@ -499,7 +447,7 @@ input:focus, textarea:focus, select:focus {
     font-family: 'Poppins', sans-serif;
     font-size: 1.3rem;
     margin-bottom: 20px;
-    color: white;
+    color: #333;
 }
 
 .footer-col ul {
@@ -511,7 +459,7 @@ input:focus, textarea:focus, select:focus {
 }
 
 .footer-col ul li a {
-    color: #ccc;
+    color: #555;
     text-decoration: none;
     transition: color 0.3s;
 }
@@ -525,7 +473,7 @@ input:focus, textarea:focus, select:focus {
     align-items: flex-start;
     gap: 10px;
     margin-bottom: 15px;
-    color: #ccc;
+    color: #555;
 }
 
 .contact-info i {
@@ -534,10 +482,10 @@ input:focus, textarea:focus, select:focus {
 }
 
 .footer-bottom {
-    border-top: 1px solid #444;
+    border-top: 1px solid #eee;
     padding-top: 20px;
     text-align: center;
-    color: #ccc;
+    color: #666;
 }
 
 /* Responsive Design */
@@ -559,6 +507,10 @@ input:focus, textarea:focus, select:focus {
         grid-template-columns: 1fr;
         gap: 30px;
     }
+    
+    .nav-links-centered {
+        gap: 25px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -570,12 +522,37 @@ input:focus, textarea:focus, select:focus {
         right: 0;
         background: white;
         flex-direction: column;
-        padding: 20px;
+        padding: 25px;
         box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        border-top: 2px solid #f48020;
+        gap: 15px;
+        margin-left: 0;
     }
     
     .nav-menu.active {
         display: flex;
+    }
+    
+    .nav-links-centered {
+        position: static;
+        transform: none;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    .nav-links-centered a {
+        width: 100%;
+        text-align: center;
+        padding: 12px 0;
+    }
+    
+    .btn-contact-oval {
+        margin-left: 0;
+        width: 100%;
+        text-align: center;
+        border-radius: 50px;
     }
     
     .menu-toggle {
@@ -584,10 +561,6 @@ input:focus, textarea:focus, select:focus {
     
     .hero {
         padding: 120px 0 60px;
-    }
-    
-    .hero-content h1 {
-        font-size: 2.2rem;
     }
     
     .products-grid {
@@ -606,15 +579,15 @@ input:focus, textarea:focus, select:focus {
         padding: 60px 0;
     }
     
-    .hero-content h1 {
-        font-size: 1.8rem;
-    }
-    
     .section-header h2 {
         font-size: 1.8rem;
     }
     
     .service-item, .services-column-header {
+        padding: 20px;
+    }
+    
+    .contact-container {
         padding: 20px;
     }
 }
