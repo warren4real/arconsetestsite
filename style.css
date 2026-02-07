@@ -70,59 +70,48 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
+    position: relative;
 }
 
-/* Logo Image Styling */
+/* Logo Image */
 .logo-img {
     height: 40px;
     width: auto;
     display: block;
 }
 
-/* Navigation Menu Layout */
+/* Navigation Menu */
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 20px;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 40px; /* Space after logo */
 }
 
-/* Group the first three links together */
-.nav-links {
+/* Centered Links Container */
+.nav-links-centered {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 40px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-/* Navigation Links - Orange Text */
-.nav-menu a {
+/* Orange Text Links */
+.nav-links-centered a {
     text-decoration: none;
-    color: #f48020; /* Orange color */
+    color: #f48020;
     font-weight: 500;
     font-size: 1rem;
-    transition: color 0.3s;
-    padding: 5px 0;
+    transition: all 0.3s;
+    padding: 8px 0;
     position: relative;
 }
 
-/* Contact Button - Orange Background with White Text */
-.btn-quote {
-    background: #f48020;
-    color: white !important;
-    padding: 10px 25px;
-    border-radius: 5px;
-    font-weight: 600 !important;
-    transition: all 0.3s;
-    border: 2px solid #f48020;
-    margin-left: 10px;
-}
-
-.btn-quote:hover {
-    background: #fff;
-    color: #f48020 !important;
-}
-
-/* Add underline effect on hover for regular links */
-.nav-links a::after {
+/* Underline Effect on Hover */
+.nav-links-centered a::after {
     content: '';
     position: absolute;
     width: 0;
@@ -133,8 +122,28 @@ body {
     transition: width 0.3s;
 }
 
-.nav-links a:hover::after {
+.nav-links-centered a:hover::after {
     width: 100%;
+}
+
+/* Oval Contact Button */
+.btn-contact-oval {
+    background: #f48020;
+    color: white !important;
+    padding: 10px 35px;
+    border-radius: 50px; /* Creates oval shape */
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s;
+    border: 2px solid #f48020;
+    margin-left: auto; /* Pushes to right edge */
+}
+
+.btn-contact-oval:hover {
+    background: #fff;
+    color: #f48020 !important;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(244, 128, 32, 0.2);
 }
 
 /* Mobile Menu Toggle */
@@ -147,7 +156,13 @@ body {
     cursor: pointer;
 }
 
-/* Responsive Design for Mobile */
+/* Responsive Design */
+@media (max-width: 992px) {
+    .nav-links-centered {
+        gap: 25px;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-menu {
         display: none;
@@ -157,32 +172,37 @@ body {
         right: 0;
         background: white;
         flex-direction: column;
-        padding: 20px;
+        padding: 25px;
         box-shadow: 0 10px 15px rgba(0,0,0,0.1);
         border-top: 2px solid #f48020;
         gap: 15px;
+        margin-left: 0;
     }
     
     .nav-menu.active {
         display: flex;
     }
     
-    .nav-links {
+    .nav-links-centered {
+        position: static;
+        transform: none;
         flex-direction: column;
         gap: 15px;
         width: 100%;
+        margin-bottom: 15px;
     }
     
-    .nav-links a {
-        text-align: center;
+    .nav-links-centered a {
         width: 100%;
-        padding: 10px 0;
+        text-align: center;
+        padding: 12px 0;
     }
     
-    .btn-quote {
+    .btn-contact-oval {
         margin-left: 0;
         width: 100%;
         text-align: center;
+        border-radius: 50px;
     }
     
     .menu-toggle {
