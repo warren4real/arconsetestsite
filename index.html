@@ -13,7 +13,6 @@
     <nav class="navbar">
         <div class="container nav-container">
             <a href="#" class="logo">
-                <img src="arconse-logo (inverted).jpg" alt="ArConSe Logo">
                 <span class="logo-text">rConSe</span>
             </a>
             <div class="nav-menu">
@@ -29,7 +28,15 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" role="img" aria-label="ArConSe hero image"></section>
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>We Build. We Design. We Sell.</h1>
+                <p>Innovative solutions for a sustainable future</p>
+                <a href="#services" class="btn-hero">Explore Our Services</a>
+            </div>
+        </div>
+    </section>
 
     <!-- Services Section - T-FORMAT (Two Columns) -->
     <section id="services" class="section services">
@@ -48,10 +55,6 @@
                     <div class="service-item">
                         <h4>Architectural Design and Engineering</h4>
                         <p>Complete architectural design services, engineering consultations, and project management for all types of construction projects.</p>
-                    </div>
-                    <div class="service-item">
-                        <h4>Design Services</h4>
-                        <p>Creative and innovative design solutions tailored to client needs and project requirements.</p>
                     </div>
                     <div class="service-item">
                         <h4>Construction and Development</h4>
@@ -89,14 +92,10 @@
                     </div>
                 </div>
             </div>
-            
-            <div class="services-cta">
-                <a href="#quote" class="btn-cta">Request a Quotation</a>
-            </div>
         </div>
     </section>
 
-    <!-- Products Section - 3 CATEGORIES WITH IMAGES -->
+    <!-- Products Section -->
     <section id="products" class="section products">
         <div class="container">
             <div class="section-header">
@@ -105,81 +104,41 @@
                 <p class="section-subtitle">High-quality products for sustainable living and construction</p>
             </div>
             
-            <!-- Category 1: Water Proofing & Dispenser -->
-            <div class="product-category">
-                <div class="category-header">
-                    <h3><i class="fas fa-tint"></i> Water Proofing & Dispenser</h3>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Water Proofing & Dispenser</h3>
+                    <p>High-quality waterproofing materials and water dispensing systems</p>
+                    <a href="#quote" class="btn-product">Contact for Quote</a>
                 </div>
-                <div class="products-grid">
-                    <div class="product-card" onclick="window.location.href='#quote'">
-                        <div class="product-image">
-                            <img src="Water Proofing Product.jpg" alt="Water Proofing Products">
-                        </div>
-                        <div class="product-cta">
-                            <a href="#quote" class="btn-product-contact">Contact for Quote</a>
-                        </div>
+                
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-sun"></i>
                     </div>
-                    
-                    <div class="product-card" onclick="window.location.href='#quote'">
-                        <div class="product-image">
-                            <img src="Premium Series.jpg" alt="Premium Water Purification System">
-                        </div>
-                        <div class="product-cta">
-                            <a href="#quote" class="btn-product-contact">Contact for Quote</a>
-                        </div>
-                    </div>
+                    <h3>Solar Products</h3>
+                    <p>Solar flood lights and energy-efficient solar solutions</p>
+                    <a href="#quote" class="btn-product">Inquire Now</a>
                 </div>
-            </div>
-            
-            <!-- Category 2: Smart Organic Composter -->
-            <div class="product-category">
-                <div class="category-header">
-                    <h3><i class="fas fa-recycle"></i> Smart Organic Composter</h3>
+                
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <h3>Power Station</h3>
+                    <p>Portable power stations for reliable energy supply</p>
+                    <a href="#quote" class="btn-product">Inquire Now</a>
                 </div>
-                <div class="products-grid">
-                    <div class="product-card" onclick="window.location.href='#quote'">
-                        <div class="product-image">
-                            <img src="Smart Organic Composter.jpg" alt="Smart Organic Composter">
-                        </div>
-                        <div class="product-cta">
-                            <a href="#quote" class="btn-product-contact">Contact for Quote</a>
-                        </div>
+                
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-recycle"></i>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Category 3: Solar Products -->
-            <div class="product-category">
-                <div class="category-header">
-                    <h3><i class="fas fa-sun"></i> Solar Products</h3>
-                </div>
-                <div class="products-grid">
-                    <div class="product-card" onclick="window.location.href='#quote'">
-                        <div class="product-image">
-                            <img src="Solar Products.jpg" alt="Solar Products">
-                        </div>
-                        <div class="product-cta">
-                            <a href="#quote" class="btn-product">Inquire Now</a>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card" onclick="window.location.href='#quote'">
-                        <div class="product-image">
-                            <img src="Power Station.jpg" alt="Portable Power Station">
-                        </div>
-                        <div class="product-cta">
-                            <a href="#quote" class="btn-product">View Details</a>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card" onclick="window.location.href='#quote'">
-                        <div class="product-image">
-                            <img src="Home Battery Backup.jpg" alt="Solar Street Lights">
-                        </div>
-                        <div class="product-cta">
-                            <a href="#quote" class="btn-product-contact">Contact for Quote</a>
-                        </div>
-                    </div>
+                    <h3>Smart Organic Composter</h3>
+                    <p>Efficient composting solutions for sustainable waste management</p>
+                    <a href="#quote" class="btn-product">Contact for Quote</a>
                 </div>
             </div>
         </div>
@@ -193,51 +152,34 @@
                 <div class="underline"></div>
                 <p class="section-subtitle">Completed and ongoing construction and sustainability projects</p>
             </div>
+            
             <div class="projects-grid">
                 <div class="project-card">
-                    <img src="project-1.jpg" alt="Heritage Lifestyle Medical Center">
-                    <div class="project-info">
-                        <h3>Heritage Lifestyle Medical Center</h3>
-                        <p>Ongoing project - Design and construction of modern medical facility with sustainable features.</p>
+                    <div class="project-content">
+                        <h3>St. Mazenod Hospital</h3>
+                        <p>Design and Build of 20 CMD Sewage Treatment Plant</p>
                     </div>
                 </div>
+                
                 <div class="project-card">
-                    <img src="project-2.jpg" alt="Beulah Cafe">
-                    <div class="project-info">
-                        <h3>Beulah Cafe</h3>
-                        <p>Design and construct completed June 2025 - Sustainable cafe with solar power and water recycling.</p>
+                    <div class="project-content">
+                        <h3>NOVADECI</h3>
+                        <p>Design and Build of 160 CMD Sewage Treatment Plant</p>
                     </div>
                 </div>
+                
                 <div class="project-card">
-                    <img src="project-3.jpg" alt="AIIAS Staff House">
-                    <div class="project-info">
+                    <div class="project-content">
                         <h3>AIIAS Staff House</h3>
-                        <p>Ongoing project - Residential complex with integrated solar and water management systems.</p>
+                        <p>Ongoing project - Residential complex with integrated solar and water management systems</p>
                     </div>
                 </div>
+                
                 <div class="project-card">
-                    <img src="project-4.jpg" alt="AIAS Gym Building">
-                    <div class="project-info">
-                        <h3>AIAS Gym Building</h3>
-                        <p>Construction completed 2024 - Sports facility with energy-efficient lighting and water systems.</p>
+                    <div class="project-content">
+                        <h3>Southern Asia-Pacific Division Corporation</h3>
+                        <p>Construction - On Going: Started November 2025</p>
                     </div>
-                </div>
-            </div>
-            
-            <!-- Other Notable Projects - DROPDOWN VERSION -->
-            <div class="project-highlights-dropdown">
-                <button class="dropdown-toggle" id="projectsDropdownToggle">
-                    <h4>Other Notable Projects:</h4>
-                    <i class="fas fa-chevron-down dropdown-icon"></i>
-                </button>
-                <div class="dropdown-content" id="projectsDropdown">
-                    <ul>
-                        <li>Potable Water Systems at Belmont Newport Luxury Hotels</li>
-                        <li>21 Stages Fully Executive Purified Water Refilling System (3000 GPD)</li>
-                        <li>NOVADECI - 160 CMD Sewage Treatment Plant</li>
-                        <li>St. Mazenod Hospital - 20 CMD Sewage Treatment Plant</li>
-                        <li>Gourmet Solutions - 25 CMD Sewage Treatment Plant</li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -251,6 +193,7 @@
                 <div class="underline"></div>
                 <p class="section-subtitle">Get in touch for quotations, product inquiries, or project consultations</p>
             </div>
+            
             <div class="contact-container">
                 <div class="contact-info">
                     <h3>Get In Touch</h3>
@@ -287,6 +230,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <div class="contact-form">
                     <h3>Send Us a Message</h3>
                     <form id="quoteForm" class="quote-form">
@@ -301,18 +245,16 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="name" placeholder="Your Full Name" required>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="email" id="email" placeholder="Email Address" required>
-                            </div>
-                            <div class="form-group">
-                                <input type="tel" id="phone" placeholder="Phone Number" required>
-                            </div>
+                            <input type="text" id="name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" placeholder="Tell us about your requirements..." rows="4" required></textarea>
+                            <input type="email" id="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Tell us about your project..." rows="4" required></textarea>
                         </div>
                         <button type="submit" class="btn-submit">Send Message</button>
                     </form>
@@ -327,22 +269,15 @@
             <div class="footer-grid">
                 <div class="footer-col">
                     <div class="logo">
-                        <img src="arconse-logo (inverted).jpg" alt="ArConSe Logo">
                         <span class="logo-text">rConSe</span>
                     </div>
                     <p>We Build. We Design. We Sell. Innovative solutions for a sustainable future.</p>
-                    <div class="social-links">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="mailto:arconse.ic@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                    </div>
                 </div>
                 
                 <div class="footer-col">
                     <h3>Quick Links</h3>
                     <ul>
-                        <li><a href="#services">Our Services</a></li>
+                        <li><a href="#services">Services</a></li>
                         <li><a href="#products">Products</a></li>
                         <li><a href="#projects">Projects</a></li>
                         <li><a href="#quote">Contact</a></li>
@@ -381,7 +316,7 @@
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2026 ArConSe. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+                <p>&copy; 2024 ArConSe. All rights reserved.</p>
             </div>
         </div>
     </footer>
