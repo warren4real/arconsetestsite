@@ -72,20 +72,29 @@ body {
     padding: 20px;
 }
 
+/* Logo Image Styling */
+.logo-img {
+    height: 40px; /* Adjust based on your image size */
+    width: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+}
+
+/* Remove or update the old logo-text styles */
+.logo-text {
+    display: none; /* Hide the text logo */
+}
+
+/* Optional: Adjust logo container padding if needed */
 .logo {
     display: flex;
     align-items: center;
     text-decoration: none;
+    padding: 5px 0; /* Adjust padding for image */
 }
 
-.logo-text {
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #f48020;
-    background: #f0f0f0;
-    padding: 10px 15px;
-    border-radius: 5px;
+/* For the footer logo - make it smaller */
+.footer .logo-img {
+    height: 35px; /* Slightly smaller for footer */
 }
 
 .nav-menu {
