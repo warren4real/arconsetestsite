@@ -159,36 +159,80 @@
                 </div>
                 
                 <div class="products-grid">
-                    <div class="product-card">
-                        <div class="product-icon">
-                            <i class="fas fa-tint"></i>
+                    <!-- Water Proofing Product -->
+                    <div class="product-card" data-modal="waterproofing">
+                        <div class="product-image-container">
+                            <img src="assets/Water Proofing Product.jpg" alt="Water Proofing" class="product-image">
+                            <div class="product-hover-overlay">
+                                <div class="hover-content">
+                                    <i class="fas fa-search-plus"></i>
+                                    <span>Click to View Details</span>
+                                </div>
+                            </div>
                         </div>
-                        <h3>Water Proofing & Dispenser</h3>
-                        <p>High-quality waterproofing materials and water dispensing systems</p>
+                        <h3>Water Proofing</h3>
+                        <p>High-quality waterproofing materials for all types of structures</p>
                         <a href="#quote" class="btn-product">Contact for Quote</a>
                     </div>
                     
-                    <div class="product-card">
-                        <div class="product-icon">
-                            <i class="fas fa-sun"></i>
+                    <!-- Water Dispenser Product -->
+                    <div class="product-card" data-modal="water-dispenser">
+                        <div class="product-image-container">
+                            <img src="assets/Water Dispenser Product.jpg" alt="Water Dispenser" class="product-image">
+                            <div class="product-hover-overlay">
+                                <div class="hover-content">
+                                    <i class="fas fa-search-plus"></i>
+                                    <span>Click to View Details</span>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Water Dispenser</h3>
+                        <p>Efficient water dispensing systems for clean drinking water</p>
+                        <a href="#quote" class="btn-product">Contact for Quote</a>
+                    </div>
+                    
+                    <!-- Solar Products -->
+                    <div class="product-card" data-modal="solar-products">
+                        <div class="product-image-container">
+                            <img src="assets/Solar Products.jpg" alt="Solar Products" class="product-image">
+                            <div class="product-hover-overlay">
+                                <div class="hover-content">
+                                    <i class="fas fa-search-plus"></i>
+                                    <span>Click to View Details</span>
+                                </div>
+                            </div>
                         </div>
                         <h3>Solar Products</h3>
                         <p>Solar flood lights and energy-efficient solar solutions</p>
                         <a href="#quote" class="btn-product">Inquire Now</a>
                     </div>
                     
-                    <div class="product-card">
-                        <div class="product-icon">
-                            <i class="fas fa-battery-full"></i>
+                    <!-- Power Station -->
+                    <div class="product-card" data-modal="power-station">
+                        <div class="product-image-container">
+                            <img src="assets/product-power station.jpg" alt="Power Station" class="product-image">
+                            <div class="product-hover-overlay">
+                                <div class="hover-content">
+                                    <i class="fas fa-search-plus"></i>
+                                    <span>Click to View Details</span>
+                                </div>
+                            </div>
                         </div>
                         <h3>Power Station</h3>
                         <p>Portable power stations for reliable energy supply</p>
                         <a href="#quote" class="btn-product">Inquire Now</a>
                     </div>
                     
-                    <div class="product-card">
-                        <div class="product-icon">
-                            <i class="fas fa-recycle"></i>
+                    <!-- Smart Organic Composter -->
+                    <div class="product-card" data-modal="composter">
+                        <div class="product-image-container">
+                            <img src="assets/Smart Organic Composter.jpg" alt="Smart Organic Composter" class="product-image">
+                            <div class="product-hover-overlay">
+                                <div class="hover-content">
+                                    <i class="fas fa-search-plus"></i>
+                                    <span>Click to View Details</span>
+                                </div>
+                            </div>
                         </div>
                         <h3>Smart Organic Composter</h3>
                         <p>Efficient composting solutions for sustainable waste management</p>
@@ -377,6 +421,157 @@
                 </div>
             </div>
         </footer>
+    </div>
+
+    <!-- Product Detail Modals -->
+    <!-- Water Proofing Modal -->
+    <div id="waterproofing-modal" class="product-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Water Proofing</h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img src="assets/Water Proofing Product.jpg" alt="Water Proofing Details" class="modal-detail-image">
+                </div>
+                <div class="modal-description">
+                    <h3>Water Proofing Product Details</h3>
+                    <p>Waterproofing is a process that involves applying a waterproof coating to surfaces to protect them from water damage. This can be done on walls, floors, and other areas where water exposure is likely to occur. Waterproofing can help prevent leaks, mold growth, and other issues caused by water intrusion.</p>
+                    
+                    <h4>Features</h4>
+                    <ul>
+                        <li><strong>Easy Application:</strong> Waterproofing coatings are easy to apply with a roller or brush.</li>
+                        <li><strong>Long-Lasting Protection:</strong> These coatings provide long-lasting protection against water damage.</li>
+                        <li><strong>Versatile Use:</strong> Waterproofing coatings can be used on various surfaces, including concrete, metal, wood, and masonry.</li>
+                    </ul>
+                    
+                    <div class="modal-action">
+                        <a href="#quote" class="btn-modal-quote">Contact for Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Water Dispenser Modal -->
+    <div id="water-dispenser-modal" class="product-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Water Dispenser</h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img src="assets/Water Dispenser Product.jpg" alt="Water Dispenser Details" class="modal-detail-image">
+                </div>
+                <div class="modal-description">
+                    <h3>Water Dispenser Product Details</h3>
+                    <p>Water dispensers are self-contained units that dispense hot or cold water for drinking. They are commonly found in offices, schools, and public spaces. Water dispensers typically consist of a reservoir, a pump, and a spigot. The reservoir holds the water, while the pump circulates it through the spigot.</p>
+                    
+                    <h4>Features</h4>
+                    <ul>
+                        <li><strong>Easy Installation:</strong> Water dispensers are designed for quick and easy installation.</li>
+                        <li><strong>Durable Construction:</strong> Made from high-quality materials, these dispensers are built to last.</li>
+                        <li><strong>Customizable Options:</strong> Many models offer customizable features such as temperature control and flow rate adjustment.</li>
+                    </ul>
+                    
+                    <div class="modal-action">
+                        <a href="#quote" class="btn-modal-quote">Contact for Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solar Products Modal -->
+    <div id="solar-products-modal" class="product-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Solar Products</h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img src="assets/Solar Products.jpg" alt="Solar Products Details" class="modal-detail-image">
+                </div>
+                <div class="modal-description">
+                    <h3>Solar Products Details</h3>
+                    <p>Solar products harness the power of the sun to generate electricity. They come in various forms, including solar panels, solar lights, and solar-powered appliances. Solar energy is clean, renewable, and sustainable, making it an attractive option for reducing carbon emissions and saving money on utility bills.</p>
+                    
+                    <h4>Features</h4>
+                    <ul>
+                        <li><strong>High Efficiency:</strong> Solar panels are highly efficient at converting sunlight into electricity.</li>
+                        <li><strong>Low Maintenance:</strong> Once installed, solar products require minimal maintenance.</li>
+                        <li><strong>Versatile Applications:</strong> Solar products can be used in residential, commercial, and industrial settings.</li>
+                    </ul>
+                    
+                    <div class="modal-action">
+                        <a href="#quote" class="btn-modal-quote">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Power Station Modal -->
+    <div id="power-station-modal" class="product-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Power Station</h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img src="assets/product-power station.jpg" alt="Power Station Details" class="modal-detail-image">
+                </div>
+                <div class="modal-description">
+                    <h3>Power Station Details</h3>
+                    <p>Power stations are large-scale facilities that generate electricity by burning fossil fuels or nuclear reactions. They play a crucial role in providing reliable and affordable energy to communities around the world. Power stations use advanced technology to optimize efficiency and minimize environmental impact.</p>
+                    
+                    <h4>Features</h4>
+                    <ul>
+                        <li><strong>Clean Energy Source:</strong> Power stations rely on renewable sources like wind, solar, and hydroelectric power.</li>
+                        <li><strong>High Capacity:</strong> These facilities have massive generating capacities to meet high demand.</li>
+                        <li><strong>Advanced Technology:</strong> Modern power stations incorporate state-of-the-art equipment and automation systems.</li>
+                    </ul>
+                    
+                    <div class="modal-action">
+                        <a href="#quote" class="btn-modal-quote">Inquire Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Smart Organic Composter Modal -->
+    <div id="composter-modal" class="product-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-header">
+                <h2>Smart Organic Composter</h2>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image-container">
+                    <img src="assets/Smart Organic Composter.jpg" alt="Smart Organic Composter Details" class="modal-detail-image">
+                </div>
+                <div class="modal-description">
+                    <h3>Smart Organic Composter Details</h3>
+                    <p>Our smart composters, made from organic waste, are designed to help you reduce your household waste and contribute to a greener environment. These compact units are perfect for small spaces and can be easily integrated into your daily routine.</p>
+                    
+                    <h4>Features</h4>
+                    <ul>
+                        <li><strong>Organic Waste Utilization:</strong> Composters utilize organic waste, turning it into nutrient-rich soil.</li>
+                        <li><strong>Compact Design:</strong> Designed for small spaces, these units save valuable floor space.</li>
+                        <li><strong>Easy Maintenance:</strong> Regular cleaning and occasional replacement of parts ensure optimal performance.</li>
+                    </ul>
+                    
+                    <div class="modal-action">
+                        <a href="#quote" class="btn-modal-quote">Contact for Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
