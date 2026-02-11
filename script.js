@@ -22,19 +22,66 @@ navLinks.forEach(link => {
     });
 });
 
-// Global functions for opening and closing modals
-window.openModal = function(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.style.display = 'block';
+// State management for lightbox - following the exact pattern
+let lightboxState = {
+    selectedImage: null,
+    selectedTitle: "",
+    currentType: ""
+};
+
+// Get DOM elements
+const lightboxModal = document.getElementById('lightbox-modal');
+const lightboxImage = document.getElementById('lightbox-image');
+const lightboxTitle = document.getElementById('lightbox-title');
+const lightboxQuoteBtn = document.getElementById('lightbox-quote-btn');
+
+// Open lightbox function - matches the pattern exactly
+window.openLightbox = function(image, title, type) {
+    // setSelectedImage(image);
+    lightboxState.selectedImage = image;
+    
+    // setSelectedTitle(title);
+    lightboxState.selectedTitle = title;
+    lightboxState.currentType = type || 'general';
+    
+    // Update DOM
+    if (lightboxImage) {
+        lightboxImage.src = image;
+        lightboxImage.alt = title;
+    }
+    
+    if (lightboxTitle) {
+        lightboxTitle.textContent = title;
+    }
+    
+    if (lightboxQuoteBtn) {
+        // Update the quote button link with context
+        const baseLink = '#quote';
+        lightboxQuoteBtn.href = baseLink;
+        
+        // You can add query params or context if needed
+        lightboxQuoteBtn.innerHTML = `<i class="fas fa-file-alt"></i> Request a Quotation for ${title.split(' ').slice(0, 3).join(' ')}...`;
+    }
+    
+    // Show modal
+    if (lightboxModal) {
+        lightboxModal.style.display = 'block';
         document.body.style.overflow = 'hidden';
     }
 };
 
-window.closeModal = function(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) {
-        modal.style.display = 'none';
+// Close lightbox function
+window.closeLightbox = function() {
+    // setSelectedImage(null);
+    lightboxState.selectedImage = null;
+    
+    // setSelectedTitle("");
+    lightboxState.selectedTitle = "";
+    lightboxState.currentType = "";
+    
+    // Hide modal
+    if (lightboxModal) {
+        lightboxModal.style.display = 'none';
         document.body.style.overflow = 'auto';
     }
 };
@@ -44,35 +91,21 @@ const closeButtons = document.querySelectorAll('.close-lightbox');
 closeButtons.forEach(button => {
     button.addEventListener('click', (e) => {
         e.stopPropagation();
-        const modal = button.closest('.lightbox-modal');
-        if (modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
+        closeLightbox();
     });
 });
 
 // Close modal when clicking outside of modal content
 window.addEventListener('click', (e) => {
-    const modals = document.querySelectorAll('.lightbox-modal');
-    modals.forEach(modal => {
-        if (e.target === modal) {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-        }
-    });
+    if (e.target === lightboxModal) {
+        closeLightbox();
+    }
 });
 
 // Close modal with Escape key
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-        const modals = document.querySelectorAll('.lightbox-modal');
-        modals.forEach(modal => {
-            if (modal.style.display === 'block') {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
+    if (e.key === 'Escape' && lightboxModal && lightboxModal.style.display === 'block') {
+        closeLightbox();
     }
 });
 
@@ -87,6 +120,12 @@ if (quoteForm) {
         const email = document.getElementById('email').value;
         const phone = document.getElementById('phone').value;
         const message = document.getElementById('message').value;
+        
+        // You can include the lightbox context here if needed
+        let contextMessage = message;
+        if (lightboxState.selectedTitle) {
+            contextMessage = `Regarding: ${lightboxState.selectedTitle}\n\n${message}`;
+        }
         
         alert(`Thank you for your inquiry, ${name}! We will contact you at ${email} or ${phone} regarding your ${inquiryType} request.`);
         
@@ -104,12 +143,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
-            // Close any open modals before scrolling
-            const modals = document.querySelectorAll('.lightbox-modal');
-            modals.forEach(modal => {
-                modal.style.display = 'none';
-            });
-            document.body.style.overflow = 'auto';
+            // Close lightbox if open
+            if (lightboxModal && lightboxModal.style.display === 'block') {
+                closeLightbox();
+            }
             
             window.scrollTo({
                 top: targetElement.offsetTop - 80,
@@ -118,3 +155,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// Initialize: make sure lightbox is hidden on page load
+document.addEventListener('DOMContentLoaded', function() {
+    if (lightboxModal) {
+        lightboxModal.style.display = 'none';
+    }
+});
+
+// Add touch support for mobile devices
+if ('ontouchstart' in window) {
+    document.documentElement.classList.add('touch-device');
+}
