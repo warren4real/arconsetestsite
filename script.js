@@ -22,7 +22,7 @@ navLinks.forEach(link => {
     });
 });
 
-// State management for lightbox - following the exact pattern
+// State management for lightbox
 let lightboxState = {
     selectedImage: null,
     selectedTitle: "",
@@ -35,12 +35,9 @@ const lightboxImage = document.getElementById('lightbox-image');
 const lightboxTitle = document.getElementById('lightbox-title');
 const lightboxQuoteBtn = document.getElementById('lightbox-quote-btn');
 
-// Open lightbox function - matches the pattern exactly
+// Open lightbox function
 window.openLightbox = function(image, title, type) {
-    // setSelectedImage(image);
     lightboxState.selectedImage = image;
-    
-    // setSelectedTitle(title);
     lightboxState.selectedTitle = title;
     lightboxState.currentType = type || 'general';
     
@@ -55,11 +52,8 @@ window.openLightbox = function(image, title, type) {
     }
     
     if (lightboxQuoteBtn) {
-        // Update the quote button link with context
         const baseLink = '#quote';
         lightboxQuoteBtn.href = baseLink;
-        
-        // You can add query params or context if needed
         lightboxQuoteBtn.innerHTML = `<i class="fas fa-file-alt"></i> Request a Quotation for ${title.split(' ').slice(0, 3).join(' ')}...`;
     }
     
@@ -72,10 +66,7 @@ window.openLightbox = function(image, title, type) {
 
 // Close lightbox function
 window.closeLightbox = function() {
-    // setSelectedImage(null);
     lightboxState.selectedImage = null;
-    
-    // setSelectedTitle("");
     lightboxState.selectedTitle = "";
     lightboxState.currentType = "";
     
@@ -121,13 +112,16 @@ if (quoteForm) {
         const phone = document.getElementById('phone').value;
         const message = document.getElementById('message').value;
         
-        // You can include the lightbox context here if needed
         let contextMessage = message;
         if (lightboxState.selectedTitle) {
             contextMessage = `Regarding: ${lightboxState.selectedTitle}\n\n${message}`;
         }
         
-        alert(`Thank you for your inquiry, ${name}! We will contact you at ${email} or ${phone} regarding your ${inquiryType} request.`);
+        // Get selected inquiry type text for better message
+        const selectElement = document.getElementById('inquiry-type');
+        const inquiryTypeText = selectElement.options[selectElement.selectedIndex]?.text || inquiryType;
+        
+        alert(`Thank you for your inquiry, ${name}! We will contact you at ${email} or ${phone} regarding your ${inquiryTypeText} request.`);
         
         quoteForm.reset();
     });
