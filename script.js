@@ -33,7 +33,6 @@ let lightboxState = {
 const lightboxModal = document.getElementById('lightbox-modal');
 const lightboxImage = document.getElementById('lightbox-image');
 const lightboxTitle = document.getElementById('lightbox-title');
-const lightboxQuoteBtn = document.getElementById('lightbox-quote-btn');
 
 // Open lightbox function
 window.openLightbox = function(image, title, type) {
@@ -49,12 +48,6 @@ window.openLightbox = function(image, title, type) {
     
     if (lightboxTitle) {
         lightboxTitle.textContent = title;
-    }
-    
-    if (lightboxQuoteBtn) {
-        const baseLink = '#quote';
-        lightboxQuoteBtn.href = baseLink;
-        lightboxQuoteBtn.innerHTML = `<i class="fas fa-file-alt"></i> Request a Quotation for ${title.split(' ').slice(0, 3).join(' ')}...`;
     }
     
     // Show modal
