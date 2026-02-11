@@ -566,7 +566,7 @@ body {
     margin-bottom: 0;
 }
 
-/* ===== LIGHTBOX – IMAGE ONLY ===== */
+/* Lightbox Modal */
 .lightbox-modal {
     display: none;
     position: fixed;
@@ -580,82 +580,113 @@ body {
 }
 
 .lightbox-content {
-    background-color: transparent;
-    margin: 0 auto;
-    max-width: 1200px;
-    width: 100%;
-    height: 100%;
-    border-radius: 0;
+    background-color: white;
+    margin: 30px auto;
+    max-width: 1000px;
+    width: 95%;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: none;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
     position: relative;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    max-height: 90vh;
 }
 
-.lightbox-body-scrollable {
-    width: 100%;
-    height: 100%;
+.lightbox-header {
+    background: #d86c10;
+    padding: 18px 25px;
+    color: white;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+    flex-shrink: 0;
 }
 
-.lightbox-image-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0;
-    background-color: transparent;
+.lightbox-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    margin: 0;
+    padding-right: 40px;
+    line-height: 1.3;
 }
 
-.lightbox-detail-image {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-/* Floating close button */
 .close-lightbox {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 48px;
-    height: 48px;
-    background: white;
-    color: #333;
     font-size: 32px;
     font-weight: bold;
+    color: white;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.2s ease;
-    z-index: 3100;
-    border: none;
-    line-height: 1;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s;
+    flex-shrink: 0;
 }
 
 .close-lightbox:hover {
-    background: #f48020;
-    color: white;
-    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
 }
 
-/* Hide any leftover header/action elements */
-.lightbox-header,
-.lightbox-actions,
+.lightbox-body-scrollable {
+    overflow-y: auto;
+    flex: 1;
+    padding: 0;
+}
+
+
+.lightbox-image-container {
+    width: 100%;
+    padding: 30px;
+    background-color: #f8f8f8;
+    text-align: center;
+
+
+
+}
+
+.lightbox-detail-image {
+    max-width: 100%;
+    max-height: 500px;
+
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+.lightbox-actions {
+    padding: 25px 30px;
+    text-align: center;
+    border-top: 1px solid #eee;
+}
+
 .btn-lightbox-quote {
-    display: none !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: #d86c10;
+    color: white;
+    padding: 14px 35px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(216, 108, 16, 0.3);
+}
+
+.btn-lightbox-quote:hover {
+    background: #f48020;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(216, 108, 16, 0.4);
 }
 
 /* Orange Contact Section Wrapper */
@@ -915,24 +946,24 @@ input:focus, textarea:focus, select:focus {
         margin-left: auto;
         margin-right: auto;
     }
-    
+
     .products-grid-3cols {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .contact-container {
         grid-template-columns: 1fr;
         gap: 30px;
     }
-    
+
     .nav-links-centered {
         gap: 25px;
     }
-    
+
     .section-header h2 {
         font-size: 2.2rem;
     }
-    
+
     .service-column-header h3 {
         font-size: 1.2rem;
     }
@@ -953,11 +984,11 @@ input:focus, textarea:focus, select:focus {
         gap: 15px;
         margin-left: 0;
     }
-    
+
     .nav-menu.active {
         display: flex;
     }
-    
+
     .nav-links-centered {
         position: static;
         transform: none;
@@ -966,92 +997,101 @@ input:focus, textarea:focus, select:focus {
         width: 100%;
         margin-bottom: 15px;
     }
-    
+
     .nav-links-centered a {
         width: 100%;
         text-align: center;
         padding: 12px 0;
     }
-    
+
     .btn-contact-oval {
         margin-left: 0;
         width: 100%;
         text-align: center;
         border-radius: 50px;
     }
-    
+
     .menu-toggle {
         display: block;
     }
-    
+
     .hero {
         height: 60vh;
         margin-top: 70px;
     }
-    
+
     .products-grid-3cols {
         grid-template-columns: 1fr;
         max-width: 400px;
         margin: 0 auto;
     }
-    
+
     .projects-grid-2cols,
     .projects-grid-5items {
         grid-template-columns: 1fr;
         max-width: 500px;
     }
-    
+
     .projects-grid-5items .project-card:nth-child(5) {
         grid-column: auto;
         max-width: 100%;
     }
-    
+
     .service-row {
         flex-direction: column;
         align-items: center;
         text-align: center;
     }
-    
+
     .service-icon {
         width: 90px;
         height: 90px;
         margin-bottom: 10px;
     }
-    
+
     .btn-quote-white {
         padding: 12px 25px;
         font-size: 1rem;
         min-width: 220px;
     }
-    
+
+    .lightbox-header h2 {
+        font-size: 1.2rem;
+    }
+
     .lightbox-content {
-        margin: 0;
+        margin: 15px auto;
     }
-    
+
+    .lightbox-image-container {
+        padding: 20px;
+    }
+
     .lightbox-detail-image {
-        max-height: 90vh;
+        max-height: 300px;
     }
     
-    .close-lightbox {
-        top: 10px;
-        right: 10px;
-        width: 40px;
-        height: 40px;
-        font-size: 28px;
+    .lightbox-actions {
+        padding: 20px;
     }
     
+    .btn-lightbox-quote {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+
     .orange-contact-wrapper .contact-container {
         padding: 30px;
     }
-    
+
     .contact-container {
         padding: 30px;
     }
-    
+
     .project-image-wrapper {
         height: 200px;
     }
-    
+
     .section-header h2 {
         font-size: 2rem;
     }
@@ -1061,137 +1101,159 @@ input:focus, textarea:focus, select:focus {
     .section {
         padding: 60px 0;
     }
-    
+
     .section-header {
         margin-bottom: 40px;
     }
-    
+
     .section-header h2 {
         font-size: 1.8rem;
     }
-    
+
     .section-subtitle {
         font-size: 1rem;
         padding: 0 15px;
     }
-    
+
     .service-column-header {
         padding: 15px;
     }
-    
+
     .service-column-header h3 {
         font-size: 1.1rem;
     }
-    
+
     .service-row {
         padding: 15px;
     }
-    
+
     .service-details h4 {
         font-size: 1rem;
     }
-    
+
     .service-details p {
         font-size: 0.9rem;
     }
-    
+
     .service-icon {
         width: 80px;
         height: 80px;
     }
-    
+
     .btn-quote-white {
         padding: 12px 20px;
         font-size: 0.95rem;
         min-width: 200px;
         gap: 8px;
     }
-    
+
     .services-quote-btn-container {
         margin-top: 30px;
     }
-    
+
     .product-card {
         min-height: 320px;
         padding: 15px;
     }
-    
+
     .product-image-wrapper {
         height: 180px;
     }
-    
+
     .product-card h3 {
         font-size: 1.1rem;
     }
-    
+
     .project-image-wrapper {
         height: 180px;
     }
-    
+
     .project-content {
         padding: 15px;
     }
-    
+
     .project-content h3 {
         font-size: 1.1rem;
     }
-    
+
     .project-content p {
         font-size: 0.9rem;
     }
-    
+
     .contact-container,
     .orange-contact-wrapper .contact-container {
         padding: 20px;
     }
-    
+
     .orange-contact-wrapper .contact-section {
         padding: 50px 0;
     }
-    
+
     .contact-info h3, .contact-form h3 {
         font-size: 1.3rem;
         margin-bottom: 25px;
     }
-    
+
     .contact-item {
         gap: 15px;
     }
-    
+
     .contact-item i {
         font-size: 1.1rem;
     }
-    
+
     .contact-item h4 {
         font-size: 1rem;
     }
-    
+
     .quote-form {
         padding: 20px;
     }
-    
+
     .lightbox-content {
-        margin: 0;
+        margin: 10px auto;
     }
-    
+
+    .lightbox-header {
+        padding: 15px 20px;
+    }
+
+    .lightbox-header h2 {
+        font-size: 1rem;
+        padding-right: 35px;
+    }
+
     .close-lightbox {
-        width: 36px;
-        height: 36px;
-        font-size: 24px;
+        width: 40px;
+        height: 40px;
+        font-size: 28px;
     }
-    
+
+    .lightbox-image-container {
+        padding: 15px;
+    }
+
     .lightbox-detail-image {
-        max-height: 85vh;
+        max-height: 220px;
     }
     
+    .lightbox-actions {
+        padding: 15px;
+    }
+    
+    .btn-lightbox-quote {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+
     .footer {
         padding: 40px 0 20px;
     }
-    
+
     .footer-grid {
         gap: 30px;
     }
-    
+
     .footer-col h3 {
         font-size: 1.1rem;
         margin-bottom: 15px;
