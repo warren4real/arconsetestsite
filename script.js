@@ -32,22 +32,17 @@ let lightboxState = {
 // Get DOM elements
 const lightboxModal = document.getElementById('lightbox-modal');
 const lightboxImage = document.getElementById('lightbox-image');
-const lightboxTitle = document.getElementById('lightbox-title');
 
-// Open lightbox function
+// Open lightbox function – title parameter is now optional and unused
 window.openLightbox = function(image, title, type) {
     lightboxState.selectedImage = image;
-    lightboxState.selectedTitle = title;
+    lightboxState.selectedTitle = title || '';
     lightboxState.currentType = type || 'general';
     
-    // Update DOM
+    // Update image only – no title element exists anymore
     if (lightboxImage) {
         lightboxImage.src = image;
-        lightboxImage.alt = title;
-    }
-    
-    if (lightboxTitle) {
-        lightboxTitle.textContent = title;
+        lightboxImage.alt = title || 'Enlarged image';
     }
     
     // Show modal
