@@ -231,7 +231,7 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 20px;
-    cursor: pointer;
+    cursor: default;
 }
 
 .service-row:last-child {
@@ -251,16 +251,49 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 2px solid #fff;
     transition: transform 0.3s ease;
-}
-
-.service-row:hover .service-icon {
-    transform: scale(1.1);
+    position: relative;
+    cursor: pointer;
 }
 
 .service-icon img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.service-icon-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 8px;
+}
+
+.service-icon:hover .service-icon-overlay {
+    opacity: 1;
+}
+
+.overlay-text-small {
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    background-color: rgba(216, 108, 16, 0.9);
+    padding: 6px 12px;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.service-row:hover .service-icon {
+    transform: scale(1.1);
 }
 
 .service-details {
@@ -436,7 +469,6 @@ body {
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
-    cursor: pointer;
     border: 1px solid rgba(216, 108, 16, 0.2);
 }
 
@@ -450,6 +482,7 @@ body {
     height: 200px;
     overflow: hidden;
     position: relative;
+    cursor: pointer;
 }
 
 .project-image {
@@ -499,7 +532,7 @@ body {
     font-size: 0.95rem;
 }
 
-/* Lightbox Modal - Following Dialog Pattern */
+/* Lightbox Modal - Following exact pattern from the code */
 .lightbox-modal {
     display: none;
     position: fixed;
@@ -509,10 +542,10 @@ body {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.9);
     z-index: 3000;
-    overflow-y: auto;
     padding: 20px;
 }
 
+/* Key pattern: max-h-[90vh] overflow-hidden flex flex-col */
 .lightbox-content {
     background-color: white;
     margin: 30px auto;
@@ -524,50 +557,52 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    max-height: 90vh;
-}
-
-.close-lightbox {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 30px;
-    font-weight: bold;
-    color: #333;
-    cursor: pointer;
-    z-index: 10;
-    background: white;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s;
-}
-
-.close-lightbox:hover {
-    color: #f48020;
-    transform: rotate(90deg);
+    max-height: 90vh; /* Constrain dialog height */
 }
 
 .lightbox-header {
     background: #d86c10;
     padding: 20px 30px;
     color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0; /* Don't shrink header */
 }
 
 .lightbox-header h2 {
     font-family: 'Poppins', sans-serif;
     font-size: 1.8rem;
     margin: 0;
+    padding-right: 40px;
 }
 
-.lightbox-body {
-    padding: 0;
+.close-lightbox {
+    font-size: 30px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s;
+    flex-shrink: 0;
+}
+
+.close-lightbox:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+/* Key pattern: overflow-y-auto flex-1 */
+.lightbox-body-scrollable {
     overflow-y: auto;
     flex: 1;
+    padding: 0;
 }
 
 .lightbox-image-container {
@@ -575,7 +610,6 @@ body {
     padding: 30px;
     background-color: #f8f8f8;
     text-align: center;
-    border-bottom: 1px solid #eee;
 }
 
 .lightbox-detail-image {
@@ -587,49 +621,17 @@ body {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.lightbox-description {
+.lightbox-actions {
     padding: 30px;
-}
-
-.lightbox-description h3 {
-    font-family: 'Poppins', sans-serif;
-    color: #333;
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-}
-
-.lightbox-description p {
-    color: #666;
-    line-height: 1.7;
-    margin-bottom: 25px;
-}
-
-.lightbox-description h4 {
-    font-family: 'Poppins', sans-serif;
-    color: #d86c10;
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-}
-
-.lightbox-description ul {
-    margin-left: 20px;
-    margin-bottom: 30px;
-}
-
-.lightbox-description li {
-    margin-bottom: 10px;
-    color: #555;
-    line-height: 1.6;
-}
-
-.lightbox-action {
     text-align: center;
-    padding-top: 20px;
     border-top: 1px solid #eee;
 }
 
 .btn-lightbox-quote {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
     background: #d86c10;
     color: white;
     padding: 14px 35px;
@@ -637,13 +639,15 @@ body {
     text-decoration: none;
     font-weight: 600;
     font-size: 1.1rem;
-    transition: background 0.3s;
+    transition: all 0.3s;
     border: none;
     cursor: pointer;
 }
 
 .btn-lightbox-quote:hover {
     background: #f48020;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(216, 108, 16, 0.3);
 }
 
 /* Contact Section */
@@ -825,14 +829,6 @@ input:focus, textarea:focus, select:focus {
     .section-header h2 {
         font-size: 2rem;
     }
-    
-    .lightbox-image-container {
-        padding: 20px;
-    }
-    
-    .lightbox-detail-image {
-        max-height: 400px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -915,7 +911,7 @@ input:focus, textarea:focus, select:focus {
     }
     
     .lightbox-header h2 {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     
     .lightbox-content {
@@ -923,15 +919,20 @@ input:focus, textarea:focus, select:focus {
     }
     
     .lightbox-image-container {
-        padding: 15px;
+        padding: 20px;
     }
     
     .lightbox-detail-image {
         max-height: 300px;
     }
     
-    .lightbox-description {
+    .lightbox-actions {
         padding: 20px;
+    }
+    
+    .btn-lightbox-quote {
+        padding: 12px 25px;
+        font-size: 1rem;
     }
 }
 
@@ -1006,7 +1007,6 @@ input:focus, textarea:focus, select:focus {
     
     .lightbox-content {
         margin: 10px auto;
-        max-height: 95vh;
     }
     
     .lightbox-header {
@@ -1014,27 +1014,23 @@ input:focus, textarea:focus, select:focus {
     }
     
     .lightbox-header h2 {
-        font-size: 1.3rem;
+        font-size: 1.1rem;
     }
     
     .lightbox-image-container {
-        padding: 10px;
+        padding: 15px;
     }
     
     .lightbox-detail-image {
         max-height: 250px;
     }
     
-    .lightbox-description {
+    .lightbox-actions {
         padding: 15px;
     }
     
-    .lightbox-description h3 {
-        font-size: 1.2rem;
-    }
-    
     .btn-lightbox-quote {
-        padding: 12px 25px;
-        font-size: 1rem;
+        padding: 10px 20px;
+        font-size: 0.95rem;
     }
 }
