@@ -22,24 +22,48 @@ navLinks.forEach(link => {
     });
 });
 
-// Lightbox elements
+// State management for lightbox
+let lightboxState = {
+    selectedImage: null,
+    selectedTitle: "",
+    currentType: ""
+};
+
+// Get DOM elements
 const lightboxModal = document.getElementById('lightbox-modal');
 const lightboxImage = document.getElementById('lightbox-image');
 
-// Open lightbox – title is now only used for alt text
-window.openLightbox = function(image, title) {
+
+// Open lightbox function – title parameter is now optional and unused
+window.openLightbox = function(image, title, type) {
+    lightboxState.selectedImage = image;
+    lightboxState.selectedTitle = title || '';
+    lightboxState.currentType = type || 'general';
+
+    // Update image only – no title element exists anymore
     if (lightboxImage) {
         lightboxImage.src = image;
         lightboxImage.alt = title || 'Enlarged image';
+
+
+
+
     }
+
+    // Show modal
     if (lightboxModal) {
         lightboxModal.style.display = 'block';
         document.body.style.overflow = 'hidden';
     }
 };
 
-// Close lightbox
+// Close lightbox function
 window.closeLightbox = function() {
+    lightboxState.selectedImage = null;
+    lightboxState.selectedTitle = "";
+    lightboxState.currentType = "";
+
+    // Hide modal
     if (lightboxModal) {
         lightboxModal.style.display = 'none';
         document.body.style.overflow = 'auto';
@@ -74,18 +98,23 @@ const quoteForm = document.getElementById('quoteForm');
 if (quoteForm) {
     quoteForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         const inquiryType = document.getElementById('inquiry-type').value;
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const phone = document.getElementById('phone').value;
         const message = document.getElementById('message').value;
-        
+
+        let contextMessage = message;
+        if (lightboxState.selectedTitle) {
+            contextMessage = `Regarding: ${lightboxState.selectedTitle}\n\n${message}`;
+        }
+
         const selectElement = document.getElementById('inquiry-type');
         const inquiryTypeText = selectElement.options[selectElement.selectedIndex]?.text || inquiryType;
-        
+
         alert(`Thank you for your inquiry, ${name}! We will contact you at ${email} or ${phone} regarding your ${inquiryTypeText} request.`);
-        
+
         quoteForm.reset();
     });
 }
@@ -94,16 +123,16 @@ if (quoteForm) {
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
-        
+
         const targetId = this.getAttribute('href');
         if (targetId === '#') return;
-        
+
         const targetElement = document.querySelector(targetId);
         if (targetElement) {
             if (lightboxModal && lightboxModal.style.display === 'block') {
                 closeLightbox();
             }
-            
+
             window.scrollTo({
                 top: targetElement.offsetTop - 80,
                 behavior: 'smooth'
@@ -112,14 +141,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Initialize: hide lightbox on page load
+// Initialize: make sure lightbox is hidden on page load
 document.addEventListener('DOMContentLoaded', function() {
     if (lightboxModal) {
         lightboxModal.style.display = 'none';
     }
 });
 
-// Touch device support
+// Add touch support for mobile devices
 if ('ontouchstart' in window) {
     document.documentElement.classList.add('touch-device');
 }
