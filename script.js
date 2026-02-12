@@ -22,48 +22,24 @@ navLinks.forEach(link => {
     });
 });
 
-// State management for lightbox
-let lightboxState = {
-    selectedImage: null,
-    selectedTitle: "",
-    currentType: ""
-};
-
-// Get DOM elements
+// Lightbox elements
 const lightboxModal = document.getElementById('lightbox-modal');
 const lightboxImage = document.getElementById('lightbox-image');
-const lightboxTitle = document.getElementById('lightbox-title');
 
-// Open lightbox function
-window.openLightbox = function(image, title, type) {
-    lightboxState.selectedImage = image;
-    lightboxState.selectedTitle = title;
-    lightboxState.currentType = type || 'general';
-    
-    // Update DOM
+// Open lightbox – title is now only used for alt text
+window.openLightbox = function(image, title) {
     if (lightboxImage) {
         lightboxImage.src = image;
-        lightboxImage.alt = title;
+        lightboxImage.alt = title || 'Enlarged image';
     }
-    
-    if (lightboxTitle) {
-        lightboxTitle.textContent = title;
-    }
-    
-    // Show modal
     if (lightboxModal) {
         lightboxModal.style.display = 'block';
         document.body.style.overflow = 'hidden';
     }
 };
 
-// Close lightbox function
+// Close lightbox
 window.closeLightbox = function() {
-    lightboxState.selectedImage = null;
-    lightboxState.selectedTitle = "";
-    lightboxState.currentType = "";
-    
-    // Hide modal
     if (lightboxModal) {
         lightboxModal.style.display = 'none';
         document.body.style.overflow = 'auto';
@@ -105,11 +81,6 @@ if (quoteForm) {
         const phone = document.getElementById('phone').value;
         const message = document.getElementById('message').value;
         
-        let contextMessage = message;
-        if (lightboxState.selectedTitle) {
-            contextMessage = `Regarding: ${lightboxState.selectedTitle}\n\n${message}`;
-        }
-        
         const selectElement = document.getElementById('inquiry-type');
         const inquiryTypeText = selectElement.options[selectElement.selectedIndex]?.text || inquiryType;
         
@@ -141,14 +112,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Initialize: make sure lightbox is hidden on page load
+// Initialize: hide lightbox on page load
 document.addEventListener('DOMContentLoaded', function() {
     if (lightboxModal) {
         lightboxModal.style.display = 'none';
     }
 });
 
-// Add touch support for mobile devices
+// Touch device support
 if ('ontouchstart' in window) {
     document.documentElement.classList.add('touch-device');
 }
