@@ -22,7 +22,7 @@ navLinks.forEach(link => {
     });
 });
 
-// ===== LIGHTBOX FUNCTIONS – Plain HTML/CSS =====
+// ===== LIGHTBOX FUNCTIONS =====
 function openLightbox(imageSrc, title) {
     const lightboxImage = document.getElementById('lightbox-image');
     const lightboxOverlay = document.getElementById('lightbox-overlay');
