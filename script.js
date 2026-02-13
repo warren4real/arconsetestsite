@@ -1,24 +1,15 @@
-// Mobile menu toggle
-const menuToggle = document.querySelector('.menu-toggle');
-const navMenu = document.querySelector('.nav-menu');
-
-if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
-        navMenu.classList.toggle('active');
-        menuToggle.innerHTML = navMenu.classList.contains('active') 
-            ? '<i class="fas fa-times"></i>' 
-            : '<i class="fas fa-bars"></i>';
-    });
+// ===== MOBILE MENU TOGGLE =====
+function toggleMenu() {
+    document.getElementById('mobileMenu').classList.toggle('open');
 }
 
 // Close mobile menu when clicking on a link
-const navLinks = document.querySelectorAll('.nav-menu a');
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        if (navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
-        }
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            document.getElementById('mobileMenu').classList.remove('open');
+        });
     });
 });
 
@@ -112,8 +103,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     document.body.style.overflow = 'auto';
 });
-
-// Touch device support
-if ('ontouchstart' in window) {
-    document.documentElement.classList.add('touch-device');
-}
