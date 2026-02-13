@@ -57,127 +57,124 @@ body {
     line-height: 1.6;
 }
 
-/* ===== BACKGROUND WRAPPERS ===== */
-.orange-background {
-    background-color: #f48020;
-}
-
-.orange-background .section-header h2,
-.orange-background .section-subtitle {
-    color: white;
-}
-
-.orange-background .underline {
-    background: white;
-}
-
-.white-background {
-    background-color: white;
-}
-
-/* ===== NAVIGATION ===== */
-.navbar {
-    background: #fff;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    position: fixed;
-    width: 100%;
+/* ===== HEADER / NAVIGATION BAR – NEW ===== */
+#site-header {
+    position: sticky;
     top: 0;
     z-index: 1000;
+    background: #ffffff;
+    border-bottom: 1px solid #e5e0db;
+    width: 100%;
 }
 
-.nav-container {
+.header-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 15px 20px;
-    position: relative;
+    justify-content: space-between;
+    height: 80px;
 }
 
-.logo-img {
-    height: 40px;
+.logo img {
+    height: 50px;
     width: auto;
     display: block;
 }
 
-.nav-menu {
+.desktop-nav {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    margin-left: 40px;
+    gap: 2.5rem;
 }
 
-.nav-links-centered {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.nav-links-centered a {
-    text-decoration: none;
-    color: #f48020;
-    font-weight: 500;
+.desktop-nav a {
     font-size: 1rem;
-    transition: all 0.3s;
-    padding: 8px 0;
+    font-weight: 500;
+    color: #f97316;
+    text-decoration: none;
+    transition: opacity 0.2s;
     position: relative;
 }
 
-.nav-links-centered a::after {
+.desktop-nav a::after {
     content: '';
     position: absolute;
     width: 0;
     height: 2px;
-    bottom: 0;
+    bottom: -4px;
     left: 0;
-    background-color: #f48020;
+    background-color: #f97316;
     transition: width 0.3s;
 }
 
-.nav-links-centered a:hover::after {
+.desktop-nav a:hover::after {
     width: 100%;
 }
 
-.nav-links-centered a[href="#contact"] {
-    color: #f48020;
+.desktop-nav a:hover {
+    opacity: 0.9;
 }
 
-.btn-contact-oval {
-    background: #f48020;
-    color: white !important;
-    padding: 10px 35px;
-    border-radius: 50px;
+.contact-btn {
+    display: inline-block;
+    background: #f97316;
+    color: #ffffff;
+    font-size: 0.95rem;
     font-weight: 600;
+    padding: 0.625rem 1.75rem;
+    border-radius: 9999px;
     text-decoration: none;
     transition: all 0.3s;
-    border: 2px solid #f48020;
-    margin-left: auto;
+    border: 2px solid #f97316;
 }
 
-.btn-contact-oval:hover {
-    background: #fff;
-    color: #f48020 !important;
+.contact-btn:hover {
+    background: #ea6a0e;
     transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(244, 128, 32, 0.2);
+    box-shadow: 0 4px 12px rgba(249,115,22,0.3);
 }
 
-.menu-toggle {
+.mobile-toggle {
     display: none;
     background: none;
     border: none;
-    font-size: 1.5rem;
-    color: #f48020;
+    font-size: 2rem;
     cursor: pointer;
+    color: #f97316;
+}
+
+.mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-top: 1px solid #e5e0db;
+    background: #ffffff;
+}
+
+.mobile-menu a {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #f97316;
+    text-decoration: none;
+    padding: 0.5rem 0;
+}
+
+.contact-btn.mobile {
+    text-align: center;
+    margin-top: 0.5rem;
+    background: #f97316;
+    color: white;
+    padding: 0.75rem;
 }
 
 /* ===== HERO ===== */
 .hero {
     background: url('assets/hero-construction.jpg') center/cover no-repeat;
     height: 100vh;
-    margin-top: 80px;
+    width: 100%;
+    margin-top: 0;
 }
 
 /* ===== OUR SERVICES SECTION ===== */
@@ -313,33 +310,33 @@ body {
     margin-top: 40px;
 }
 
-.cta-button {
+/* ===== REQUEST A QUOTATION BUTTON – NEW ===== */
+.quote-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 12px;
-    background: white;
-    color: #f48020 !important;
-    padding: 14px 35px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    border: 2px solid white;
-    border-radius: 50px;
+    background: #fff5eb;
+    color: #f97316;
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 1rem 3rem;
+    border-radius: 9999px;
     text-decoration: none;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
     font-family: 'Poppins', sans-serif;
-    min-width: 250px;
+    min-width: 280px;
+    border: 2px solid transparent;
 }
 
-.cta-button:hover {
-    background: transparent;
-    color: white !important;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+.quote-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    background: #fff0e0;
 }
 
-.cta-button i {
+.quote-btn i {
     font-size: 1.2rem;
 }
 
@@ -862,10 +859,6 @@ body {
 }
 
 /* ===== FOOTER ===== */
-.white-background.footer-only {
-    background-color: white;
-}
-
 .footer {
     background: white;
     color: #333;
@@ -940,10 +933,6 @@ body {
         grid-template-columns: 1fr;
     }
     
-    .nav-links-centered {
-        gap: 25px;
-    }
-    
     .section-header h2,
     .services-title,
     .contact-title {
@@ -952,53 +941,21 @@ body {
 }
 
 @media (max-width: 768px) {
-    .nav-menu {
+    .desktop-nav,
+    .header-container > .contact-btn {
         display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        background: white;
-        flex-direction: column;
-        padding: 25px;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
-        border-top: 2px solid #f48020;
-        gap: 15px;
-        margin-left: 0;
     }
     
-    .nav-menu.active {
-        display: flex;
-    }
-    
-    .nav-links-centered {
-        position: static;
-        transform: none;
-        flex-direction: column;
-        gap: 15px;
-        width: 100%;
-        margin-bottom: 15px;
-    }
-    
-    .nav-links-centered a {
-        width: 100%;
-        text-align: center;
-        padding: 12px 0;
-    }
-    
-    .btn-contact-oval {
-        margin-left: 0;
-        width: 100%;
-        text-align: center;
-    }
-    
-    .menu-toggle {
+    .mobile-toggle {
         display: block;
+    }
+    
+    .mobile-menu.open {
+        display: flex;
     }
     
     .hero {
         height: 60vh;
-        margin-top: 70px;
     }
     
     .services-grid,
@@ -1050,9 +1007,24 @@ body {
         max-width: 95%;
         margin: 0.5rem;
     }
+    
+    .quote-btn {
+        font-size: 1.1rem;
+        padding: 0.875rem 2rem;
+        min-width: 240px;
+    }
 }
 
 @media (max-width: 576px) {
+    .header-container {
+        height: 70px;
+        padding: 0 1rem;
+    }
+    
+    .logo img {
+        height: 40px;
+    }
+    
     .section,
     .services-section,
     .contact-section-new {
@@ -1124,19 +1096,10 @@ body {
         margin-bottom: 24px;
     }
     
-    .contact-info-item {
-        gap: 12px;
-    }
-    
-    .contact-icon {
-        font-size: 1.1rem;
-        width: 20px;
-    }
-    
-    .cta-button {
-        padding: 12px 25px;
+    .quote-btn {
         font-size: 1rem;
-        min-width: 220px;
+        padding: 0.75rem 1.5rem;
+        min-width: 200px;
     }
     
     .footer {
