@@ -367,25 +367,54 @@
             </div>
 
             <!-- Right: Send Us a Message – WITH CUSTOM TEMPLATE -->
-            <div class="contact-form-panel">
-                <h3 class="contact-form-title">Send Us a Message</h3>
+<div class="contact-form-panel">
+    <h3 class="contact-form-title">Send Us a Message</h3>
+    
+    <!-- ===== FORM-SPECIFIC FONT STYLES ===== -->
+    <style>
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea,
+        .contact-form button,
+        .contact-form label,
+        .contact-form input::placeholder,
+        .contact-form textarea::placeholder,
+        .contact-form select option {
+            font-family: 'Inter', 'Roboto', sans-serif !important;
+        }
+        /* Optional: Make the text a bit cleaner */
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            font-weight: 400;
+            letter-spacing: 0.3px;
+        }
+        .contact-form label {
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .contact-form button {
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+    </style>
 
-                <form class="contact-form" action="https://formsubmit.co/wmalawae@gmail.com" method="POST">
-                    <!-- FormSubmit Configuration -->
-                    <input type="hidden" name="_subject" value="New Contact Form Submission from ArConSe Website">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_next" value="https://warren4real.github.io/arConSe/thankyou.html">
-                    <input type="hidden" name="_autoresponse" value="Thank you for contacting ArConSe! We have received your message and will get back to you within 24 hours.">
-                    
-                    <!-- ===== CUSTOM EMAIL TEMPLATE - OPTION 2 ===== -->
-                    <input type="hidden" name="_template" value="custom">
-                    <input type="hidden" name="_custom_template" value='
+    <form class="contact-form" action="https://formsubmit.co/arconse.ic@gmail.com" method="POST">
+        <!-- FormSubmit Configuration -->
+        <input type="hidden" name="_subject" value="New Contact Form Submission from ArConSe Website">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://warren4real.github.io/arConSe/thankyou.html">
+        <input type="hidden" name="_autoresponse" value="Thank you for contacting ArConSe! We have received your message and will get back to you within 24 hours.">
+        
+        <!-- ===== CUSTOM EMAIL TEMPLATE ===== -->
+        <input type="hidden" name="_template" value="custom">
+        <input type="hidden" name="_custom_template" value='
 <!DOCTYPE html>
 <html>
 <head>
     <style>
         body {
-            font-family: "Poppins", Arial, sans-serif;
+            font-family: "Inter", "Poppins", Arial, sans-serif;
             background-color: #f4f4f4;
             margin: 0;
             padding: 20px;
@@ -408,6 +437,7 @@
             margin: 0;
             font-size: 28px;
             font-weight: 700;
+            font-family: "Inter", "Poppins", sans-serif;
         }
         .header p {
             color: rgba(255,255,255,0.9);
@@ -430,11 +460,13 @@
             margin-bottom: 5px;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-family: "Inter", sans-serif;
         }
         .field-value {
             font-size: 18px;
             color: #333;
             font-weight: 500;
+            font-family: "Inter", sans-serif;
         }
         .message-box {
             background: #f9f9f9;
@@ -450,6 +482,7 @@
             color: #666;
             font-size: 14px;
             border-top: 1px solid #eee;
+            font-family: "Inter", sans-serif;
         }
         .badge {
             background: #f97316;
@@ -459,6 +492,7 @@
             font-size: 14px;
             display: inline-block;
             margin-bottom: 15px;
+            font-family: "Inter", sans-serif;
         }
     </style>
 </head>
@@ -503,8 +537,8 @@
             </div>
             
             <div style="text-align: center; margin-top: 30px;">
-                <a href="mailto:{{Email}}" style="background: #f97316; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; margin-right: 10px;">Reply to {{Name}}</a>
-                <a href="tel:{{Phone}}" style="background: #333; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block;">Call Now</a>
+                <a href="mailto:{{Email}}" style="background: #f97316; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; margin-right: 10px; font-family: Inter, sans-serif;">Reply to {{Name}}</a>
+                <a href="tel:{{Phone}}" style="background: #333; color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: 600; display: inline-block; font-family: Inter, sans-serif;">Call Now</a>
             </div>
         </div>
         <div class="footer">
@@ -515,49 +549,49 @@
 </body>
 </html>
 '>
-                    
-                    <!-- Inquiry Type -->
-                    <div class="form-group">
-                        <label for="contact-inquiry-type">Inquiry Type</label>
-                        <select id="contact-inquiry-type" name="Inquiry Type" required>
-                            <option value="" disabled selected>Select inquiry type</option>
-                            <option value="Service Quotation">Service Quotation</option>
-                            <option value="Product Inquiry">Product Inquiry</option>
-                            <option value="Project Consultation">Project Consultation</option>
-                            <option value="General Inquiry">General Inquiry</option>
-                        </select>
-                    </div>
+        
+        <!-- Inquiry Type -->
+        <div class="form-group">
+            <label for="contact-inquiry-type">Inquiry Type</label>
+            <select id="contact-inquiry-type" name="Inquiry Type" required>
+                <option value="" disabled selected>Select inquiry type</option>
+                <option value="Service Quotation">Service Quotation</option>
+                <option value="Product Inquiry">Product Inquiry</option>
+                <option value="Project Consultation">Project Consultation</option>
+                <option value="General Inquiry">General Inquiry</option>
+            </select>
+        </div>
 
-                    <!-- Name -->
-                    <div class="form-group">
-                        <input type="text" id="contact-name" name="Name" placeholder="Your Name" required>
-                    </div>
+        <!-- Name -->
+        <div class="form-group">
+            <input type="text" id="contact-name" name="Name" placeholder="Your Name" required>
+        </div>
 
-                    <!-- Email & Phone Row -->
-                    <div class="email-phone-row">
-                        <div class="form-group">
-                            <input type="email" id="contact-email" name="Email" placeholder="Email Address" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="contact-phone" name="Phone" placeholder="Phone Number" required>
-                        </div>
-                    </div>
-
-                    <!-- Message -->
-                    <div class="form-group">
-                        <textarea id="contact-message" name="Message" placeholder="Tell us about your project..." rows="4" required></textarea>
-                    </div>
-
-                    <!-- Honeypot to prevent spam -->
-                    <input type="text" name="_honey" style="display:none">
-
-                    <!-- Submit -->
-                    <button type="submit" class="contact-submit-btn">
-                        Send Message
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </form>
+        <!-- Email & Phone Row -->
+        <div class="email-phone-row">
+            <div class="form-group">
+                <input type="email" id="contact-email" name="Email" placeholder="Email Address" required>
             </div>
+            <div class="form-group">
+                <input type="tel" id="contact-phone" name="Phone" placeholder="Phone Number" required>
+            </div>
+        </div>
+
+        <!-- Message -->
+        <div class="form-group">
+            <textarea id="contact-message" name="Message" placeholder="Tell us about your project..." rows="4" required></textarea>
+        </div>
+
+        <!-- Honeypot to prevent spam -->
+        <input type="text" name="_honey" style="display:none">
+
+        <!-- Submit -->
+        <button type="submit" class="contact-submit-btn">
+            Send Message
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </form>
+</div>
         </div>
     </div>
 </section>
