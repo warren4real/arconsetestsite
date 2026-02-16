@@ -303,7 +303,7 @@
         </div>
     </section>
 
-    <!-- ===== CONTACT US SECTION – WITH FORMSUBMIT ===== -->
+    <!-- ===== CONTACT US SECTION – WITH FIXED REDIRECT ===== -->
     <section id="contact" class="contact-section-new">
         <div class="contact-container-new">
             <h2 class="contact-title">CONTACT US</h2>
@@ -366,7 +366,7 @@
                     </div>
                 </div>
 
-                <!-- Right: Send Us a Message – WITH FORMSUBMIT -->
+                <!-- Right: Send Us a Message – WITH FIXED REDIRECT -->
                 <div class="contact-form-panel">
                     <h3 class="contact-form-title">Send Us a Message</h3>
 
@@ -375,7 +375,8 @@
                         <input type="hidden" name="_subject" value="New Contact Form Submission from ArConSe Website">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_next" value="https://warren4real.github.io/arConSe/thankyou.html">
+                        <!-- FIXED: Redirect to homepage instead of non-existent thank you page -->
+                        <input type="hidden" name="_next" value="https://warren4real.github.io/arConSe/">
                         <input type="hidden" name="_autoresponse" value="Thank you for contacting ArConSe! We have received your message and will get back to you within 24 hours.">
                         
                         <!-- Inquiry Type -->
